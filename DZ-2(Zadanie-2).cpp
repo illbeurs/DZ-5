@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-long long sex(int n) {
+long long fib(int n) {
 	
 	long long num=0;
 	long long a = 1;
@@ -25,5 +25,5 @@ int main() {
 	int n;
 	cout << "Введите номер числа Фибоначчи: " << endl;
 	cin >> n;
-	cout << n << "-e число Фибоначчи: " << sex(n);
+	cout << n << "-e число Фибоначчи: " << fib(n);
 }
