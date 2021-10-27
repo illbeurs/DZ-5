@@ -39,6 +39,7 @@ void zadanie_2_random_replace(int B[], const int N) {
 		}
 	
 	}
+        delete[]mas;
 	print_array(B, N);
 }
 void zadanie_3_random_сounter(int C[], const int Y){
