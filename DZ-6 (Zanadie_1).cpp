@@ -12,11 +12,11 @@ void print_array(int** array, int n, int m) {
 void random_array(int** array, int n, int m) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			array[i][j]=rand()%90+10;
+			array[i][j]=rand()%200-100;
 		}
 	}
 }
-pair<int, int> min_in_array(int** array, int n, int m) { 
+pair <int, int> min_in_array(int** array, int n, int m) { 
 	int i_min = 0, j_min = 0;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
