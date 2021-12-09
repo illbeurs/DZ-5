@@ -14,7 +14,7 @@ void print_array(int** array, int n) {
 void random_array(int** array, int n) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			array[i][j] = rand() % 10;
+			array[i][j] = rand()%19-9;
 		}
 	}
 }
