@@ -1,6 +1,12 @@
 #include <iostream>
 #include <time.h>
 using namespace std;
+void delete_array(int** array, int n) {
+	for (int i = 0; i < n; i++) {
+		delete[] array[i];
+	}
+	delete[] array;
+}
 
 void print_array(int** array, int n, int m) {
 	for (int i = 0; i < n; i++) {
@@ -53,4 +59,5 @@ int main() {
 	cout << endl;
 	cout << "Измененная прямоугольная таблица: " << endl;
 	print_array(massive, n, m);
+	delete_array(massive,n);
 }
