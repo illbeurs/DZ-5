@@ -1,6 +1,12 @@
 #include <iostream>
 #include <time.h>
 using namespace std;
+void delete_array(int** array, int n) {
+    for (int i = 0; i < n; i++) {
+        delete[] array[i];
+    }
+    delete[] array;
+}
 
 void print_array(int** array, int n) {
 	for (int i = 0; i < n; i++) {
@@ -69,4 +75,5 @@ int main() {
 	replace_mas(massive, n);
 	cout << "Измененная квадратная таблица: " << endl;
 	print_array(massive, n);
+	delete_array(massive,n);
 }
