@@ -6,17 +6,17 @@ void print_array(int** array, int n, int m) {
 		for (int j = 0; j < m; j++) {
 			cout << array[i][j] << " ";
 		}
-	    cout << endl;
+		cout << endl;
 	}
 }
 void random_array(int** array, int n, int m) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			array[i][j]=rand()%200-100;
+			array[i][j] = rand() % 200 - 100;
 		}
 	}
 }
-pair <int, int> min_in_array(int** array, int n, int m) { 
+pair <int, int> min_in_array(int** array, int n, int m) {
 	int i_min = 0, j_min = 0;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
@@ -25,13 +25,13 @@ pair <int, int> min_in_array(int** array, int n, int m) {
 			}
 		}
 	}
-	return pair <int, int> (i_min, j_min);
+	return pair <int, int>(i_min, j_min);
 }
-void delete_mas(int** array, int n, int m) { 
+void resh_array(int** array, int n, int m) {
 	auto p = min_in_array(array, n, m);
 	int a = p.first;
 	int b = p.second;
-	cout <<endl<<"Минимальный элемент матрицы: "<<array[a][b] << endl;
+	cout << endl << "Минимальный элемент матрицы: " << array[a][b] << endl;
 	for (int i = a + 1; i < n; i++)  // смещаем все строчки вверх, замещая строку с минимальным элементом
 		for (int j = 0; j < m; j++)
 			array[i - 1][j] = array[i][j];
@@ -39,9 +39,15 @@ void delete_mas(int** array, int n, int m) {
 	for (int j = b + 1; j < m; j++) // то же самое со столбцами
 		for (int i = 0; i < n; i++)
 			array[i][j - 1] = array[i][j];
-	cout << endl << "Измененная матрица: "<<endl;
-	print_array(array, n-1, m-1); // уменьшаем размер матрицы на 1, т.к крайние столбцы и строчки будут повторяться.
+	cout << endl << "Измененная матрица: " << endl;
+	print_array(array, n - 1, m - 1); // уменьшаем размер матрицы на 1, т.к крайние столбцы и строчки будут повторяться.
 
+}
+void delete_array(int** array, int n) {
+	for (int i = 0; i < n; i++) {
+		delete[] array[i];
+	}
+	delete[] array;
 }
 
 int main() {
@@ -56,6 +62,6 @@ int main() {
 	}
 	random_array(mas, n, m);
 	print_array(mas, n, m);
-	delete_mas(mas, n, m);
-	delete[]mas;
+	resh_array(mas, n, m);
+	delete_array(mas, n);
 }
